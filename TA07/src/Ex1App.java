@@ -17,6 +17,7 @@ public class Ex1App {
 	public static Hashtable calcularNotaMedia (String[] alumnos, String[] asignaturas) {
         Scanner sc = new Scanner(System.in);
 		Hashtable notas=new Hashtable();
+		
 		for (int i = 0; i < alumnos.length; i++) {
 			float notaMedia = 0;
 			for (int j = 0; j < asignaturas.length; j++) {
