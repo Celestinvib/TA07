@@ -44,9 +44,17 @@ public class Ex3 {
 				break;
 			default:
 				break;
-			}
-			
+			}		
 		}
+//Solución que he encontrado!
+//		List<String> articulo2 = List.of("2","Lavadora Samsung", "499.99","6");
+//      List<String> articulo3 = List.of("3","Televesion Samsung 55'", "8.99","15");
+//      List<List> a = List.of(articulo2,articulo3);
+//
+//      for (int i = 0; i < a.size(); i++) {
+//      	System.out.println(a.get(i).get(0));
+//		}
+		
 	}
 	
 	public static Hashtable addArticulos(Hashtable articulos) {
@@ -86,13 +94,7 @@ public class Ex3 {
 		Enumeration datos = articulos.elements();
 		Enumeration id = articulos.keys();
        
-//		List<String> articulo2 = List.of("Lavadora Samsung", "499.99","6");
-//        List<String> articulo3 = List.of("Televesion Samsung 55'", "8.99","15");
-//        List<List> a = List.of(articulo2,articulo3);
-//
-//        for (int i = 0; i < a.size(); i++) {
-//        	System.out.println(a.get(i).get(0));
-//		}
+
 		
 		System.out.println("\nArtículos:");
 		while(datos.hasMoreElements()) {
