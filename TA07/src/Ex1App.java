@@ -17,8 +17,8 @@ public class Ex1App {
 	}
 	
 	public static ArrayList addAlumnos() {
-		ArrayList<String> alumnos = new ArrayList<String>();
         Scanner sc = new Scanner(System.in);
+		ArrayList<String> alumnos = new ArrayList<String>();
 
 		String nombre = "";
 		
