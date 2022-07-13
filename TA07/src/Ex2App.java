@@ -7,6 +7,7 @@ public class Ex2App {
 
 	public static void main(String[] args) {
 		
+		//Productos de la tienda
         List<String> producto1 = List.of("1", "3.99");
         List<String> producto2 = List.of("2", "4.99");
         List<String> producto3 = List.of("3", "6.99");
@@ -14,7 +15,6 @@ public class Ex2App {
 
         List<List> productos = new ArrayList<>(Arrays.asList(producto1,producto2,producto3,producto4));
 
-		
         List<List> carrito = escanearArticulos(productos);
 		
         showCarrito(carrito,0.21);
@@ -31,7 +31,7 @@ public class Ex2App {
 		
         System.out.println("\n[MODO DE ESCANEO DE PRODUCTOS]");
 		boolean escaneando = true;
-		List<String> cantidadesCarrito = new ArrayList<>(Arrays.asList());
+		List<String> cantidadesCarrito = new ArrayList<>(Arrays.asList()); //lista de productos
 		List<List> carrito = new ArrayList<>(Arrays.asList());
 
 		
@@ -43,9 +43,9 @@ public class Ex2App {
 				escaneando = false;
 			}else {
 				boolean existe = false;
-				for (int i = 0; i < productos.size(); i++) {
-					if( productos.get(i).get(0).equals(id)) {
-						cantidadesCarrito.add(id);
+				for (int i = 0; i < productos.size(); i++) { 
+					if( productos.get(i).get(0).equals(id)) { //Si la id introducida pertenece a la de algún producto
+						cantidadesCarrito.add(id); //Se añade a la lista de productos
 						existe = true;
 					}
 				}		
@@ -74,23 +74,27 @@ public class Ex2App {
 		for (int i = 0; i < cantidadesCarrito.size(); i++) {
 			InCarrito = false;
 			for (int j = 0; j < carrito.size(); j++) {
-				if(carrito.get(j).get(0).equals(cantidadesCarrito.get(i))) {
+				if(carrito.get(j).get(0).equals(cantidadesCarrito.get(i))) { //Si la id actual es igual a alguna de un producto del carrito
 					InCarrito = true;
-					Integer cantidad  = Integer.parseInt(carrito.get(j).get(2).toString()) + 1;
+					Integer cantidad  = Integer.parseInt(carrito.get(j).get(2).toString()) + 1;//Se parsea la cantidad del producto y se le añade 1 de cantidad
 
-					//carrito.get(j).set(2,cantidad.toString());
+					//No he podido actualizar el producto debido a que me daba errores y he tenido que usar remove
+					//carrito.get(j).set(2,cantidad.toString()); 
+					
+					//Almacenamos los datos del producto actual
 					String id = carrito.get(j).get(0).toString();
 					String precio = carrito.get(j).get(1).toString();
 					
 					carrito.remove(j);
-			       
+			        //Creamos un nuevo producto con los mismos datos pero la cantidad actualizada y lo añadimos la carrito
 					List<String> producto = List.of(id,precio, Integer.toString(cantidad));
 					carrito.add(producto);			
 				}
 				
 			}
 			
-			if(!InCarrito) {
+			if(!InCarrito) { //Si no esta en el carrito Añadimos el producto con esta id al carrito con 1 de cantidad actualizada
+
 				Integer idProducto = Integer.parseInt(cantidadesCarrito.get(i)) -1;
 				
 				String id = productos.get(idProducto).get(0).toString();
@@ -155,8 +159,6 @@ public class Ex2App {
 		System.out.println("Numero de artícuos Comprados: "+articulosComprados);
         System.out.println("Cantidad pagada: "+dineroUsuario+"€");
         System.out.println("Cambio a devolver: "+dineroADevolver+"€");
-
-		
 	}	
 	
 }
