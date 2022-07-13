@@ -18,7 +18,7 @@ public class Ex2App {
         List<String> productosEscaneados = escanearArticulos(productos);
 		List<List> carrito =  llenarCarrito(productos, productosEscaneados); 
         
-        showCarrito(carrito,0.21);
+		finalizarTransaccion(carrito,0.21);
                
 	}
     
@@ -113,18 +113,16 @@ public class Ex2App {
      * @param carrito Lista de los productos comprados su id , cantidades y precio.
      * @param IVA el tipo de IVA que se le aplicara al precio final de la compra 
      */
-	public static void showCarrito (List<List> carrito , double IVA) {	
+	public static void finalizarTransaccion (List<List> carrito , double IVA) {	
 		
 		double precioBruto = 0;
 		int articulosComprados=0;
 		
 		System.out.println("Artículos de la cesta:");
-		double precioArticulo = 0; 
-		int cantidadArticulo = 0;
-		
+
 		for (int i = 0; i < carrito.size(); i++) {
-			precioArticulo = 0; 
-			cantidadArticulo = 0;
+			double precioArticulo = 0; 
+			int cantidadArticulo = 0;
 			System.out.print("\nId:"+carrito.get(i).get(0)+" Precio:"+carrito.get(i).get(1)+" Cantidad:"+carrito.get(i).get(2));
 			cantidadArticulo =Integer.parseInt(carrito.get(i).get(2).toString());
 			
@@ -142,7 +140,7 @@ public class Ex2App {
         double dineroUsuario = 0;
         
         while (dineroUsuario < precioIVA) {
-	        System.out.println("\n\nAbona el importe de "+precioIVA+" €:[Dinero Pagado:"+dineroUsuario+"]\n>");
+	        System.out.print("\n\nAbona el importe de "+precioIVA+" €:[Dinero Pagado:"+dineroUsuario+"]\n>");
 	        dineroUsuario += sc.nextDouble();
         }
         
