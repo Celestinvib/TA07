@@ -15,8 +15,9 @@ public class Ex2App {
 
         List<List> productos = new ArrayList<>(Arrays.asList(producto1,producto2,producto3,producto4));
 
-        List<List> carrito = escanearArticulos(productos);
-		
+        List<String> productosEscaneados = escanearArticulos(productos);
+		List<List> carrito =  llenarCarrito(productos, productosEscaneados); 
+        
         showCarrito(carrito,0.21);
                
 	}
@@ -24,7 +25,7 @@ public class Ex2App {
 	/**
      * Método que escanea las id recibidas por teclado , comprueba que es un producto existe y si así es lo añade a una lista
      * @param productos Lista de los productos de la tienda
-     * @return El carrito de los productos escaneados
+     * @return una lista de strings con todos los productos (en id) ecaneados
      */
 	public static List escanearArticulos (List<List> productos) {
         Scanner sc = new Scanner(System.in);
@@ -32,7 +33,6 @@ public class Ex2App {
         System.out.println("\n[MODO DE ESCANEO DE PRODUCTOS]");
 		boolean escaneando = true;
 		List<String> cantidadesCarrito = new ArrayList<>(Arrays.asList()); //lista de productos
-		List<List> carrito = new ArrayList<>(Arrays.asList());
 
 		
 		while(escaneando) {
@@ -55,20 +55,18 @@ public class Ex2App {
 			}
 		}
 		
-		carrito = llenarCarrito(productos, carrito, cantidadesCarrito);
-		
-		return carrito;	
+		return cantidadesCarrito;	
 	}
 	
 	/**
      * Método que llena el carrito con los productos escaneados , indicando la cantidad de cada uno
      * @param productos Lista de los productos de la tienda
-     * @param carrito Lista de los productos comprados su id , cantidades y precio.
      * @param cantidadesCarrito Lista de ids de todos los productos escaneados
-     * @return El carrito de los productos escaneados
+     * @return El carrito dónde se guarda la id , cantidades y precio de los productos escaneados
      */
-	public static List llenarCarrito (List<List> productos ,List<List> carrito , List<String> cantidadesCarrito) {
-		
+	public static List llenarCarrito (List<List> productos , List<String> cantidadesCarrito) {
+		List<List> carrito = new ArrayList<>(Arrays.asList());
+
 		boolean InCarrito = false;
 		
 		for (int i = 0; i < cantidadesCarrito.size(); i++) {
