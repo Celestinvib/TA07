@@ -3,7 +3,7 @@ import java.util.Hashtable;
 import java.util.List;
 import java.util.Scanner;
 
-public class Ex3 {
+public class Ex3App {
 
 	public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -40,6 +40,7 @@ public class Ex3 {
 				showArticulos(articulos);
 				break;
 			case "quit":
+				sc.close();
 				break;
 			default:
 				System.out.println("Introduce una opción válida![(quit) para salir]");
