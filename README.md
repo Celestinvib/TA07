@@ -1,4 +1,5 @@
 # TA07
+/*Apuntes/Errores*/
 #[Ex4App]:
 -He utilizado métodos del ex2 ya que creo los objetos de la misma forma no he podido hacer lo mismo con los metodos que se repiten del ex3 ya que se especificaba que se utilizaba hastables en vez de List .
 #[Ex2App / Ex4App ]:
